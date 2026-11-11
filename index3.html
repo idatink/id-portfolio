@@ -1,0 +1,784 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ida Dilfer Research</title>
+<meta name="description" content="Ida Dilfer, design researcher and strategist. Case studies in research, strategy and service design across health tech, fintech, AI and family products.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,400..600&family=IBM+Plex+Mono:wght@300;400&display=swap">
+<style>
+/* Layout: the existing ida.magnaven.com system. 12-column grid, condensed Open Sans at 13 and 19px, white page, one dark band for personal research. */
+:root{
+  --bg:#ffffff; --ink:#000000; --mute:#666666; --line:#ececec; --ph:#f2f2f2; --tint:#F4F2EF;
+  --dark:#1A1A1C; --dark-ink:#E9E7E2; --dark-mute:#8F8C86; --gold:#F2D46B;
+  --sans:"Open Sans",Arial,Helvetica,sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --gut:30px; --side:30px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-stretch:100%;font-weight:400;font-size:14px;line-height:1.5;
+  padding-left:max(var(--side),env(safe-area-inset-left,0px));padding-right:max(var(--side),env(safe-area-inset-right,0px));padding-block:0 40px;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+a:hover{opacity:.55}
+a:focus-visible,button:focus-visible{outline:1px solid var(--ink);outline-offset:3px}
+img{display:block;width:100%;max-width:100%;height:auto}
+p{margin:0}
+.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gut)}
+.c3{grid-column:span 3}.c4{grid-column:span 4}.c5{grid-column:span 5}.c6{grid-column:span 6}.c8{grid-column:span 8}.c9{grid-column:span 9}.c12{grid-column:span 12}
+.o3{grid-column-start:4}.o4{grid-column-start:5}
+
+/* header */
+header{padding-block:34px 0;font-size:19px;line-height:1.5;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+header nav{display:flex;gap:22px;flex-wrap:wrap}
+button.copy{font:inherit;background:none;border:0;padding:0;color:inherit;cursor:pointer}
+button.copy:hover{opacity:.55}
+
+/* intro */
+.intro{padding-block:72px 64px}
+@media (max-width:820px){.intro{padding-block:44px 48px}}
+.intro .pos{font-size:19px;line-height:1.4;font-weight:400;margin:0 0 10px;grid-column:1/9;text-wrap:balance}
+.intro .sub{grid-column:1/9;max-width:40em}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.tags span{font-size:12.5px;line-height:1;padding:6px 10px;border:1px solid #D9D6D0;border-radius:999px;color:var(--ink);background:#fff;white-space:nowrap}
+.intro .tags{grid-column:1/-1}
+
+/* project rows */
+:root{--rh:min(400px, calc((100vw - 60px) * .64 / 2.3))}
+.row{padding-block:0 60px;align-items:start}
+.strip{grid-column:span 8;display:flex;gap:var(--gut);height:var(--rh);overflow:hidden}
+.strip:hover{opacity:1}
+.strip img{height:100%;width:auto;max-width:none;flex:none;background:var(--ph)}
+.strip .tile{height:100%;aspect-ratio:1/1;flex:none;background:var(--tint);display:grid;place-items:center;padding:8%}
+.meta h2{font-size:24px;font-weight:600;margin:0;line-height:1.2;letter-spacing:-.01em}
+.meta .yr{color:var(--mute);margin:2px 0 14px}
+.meta p{max-width:32em;font-size:15px;line-height:1.5}
+.meta .q{font-size:15px;line-height:1.4;margin-bottom:10px}
+.hit{margin-top:10px}
+.row .meta h2::after{content:" →";opacity:0;transition:opacity .2s}
+.row:hover .meta h2::after{opacity:1}
+
+/* dark band */
+.personal{background:var(--dark);color:var(--dark-ink);margin-left:calc(-1 * max(var(--side),env(safe-area-inset-left,0px)));margin-right:calc(-1 * max(var(--side),env(safe-area-inset-right,0px)));
+  padding-left:max(var(--side),env(safe-area-inset-left,0px));padding-right:max(var(--side),env(safe-area-inset-right,0px));padding-block:60px 110px;margin-top:40px}
+.personal .mark{font-family:var(--mono);font-size:19px;color:var(--dark-mute);margin-bottom:70px;display:flex;justify-content:space-between}
+.pw{align-items:start;margin-bottom:100px}
+.pw:last-child{margin-bottom:0}
+.pw p{font-family:var(--mono);font-weight:300;font-size:15px;line-height:1.75;letter-spacing:.01em;margin:22px 0 0;max-width:34em}
+.pw p b{font-weight:400;color:#fff}
+.pw .side{align-self:end}
+.pw .side p:first-child{margin-top:0}
+.pw a.play{color:var(--gold);text-decoration:underline}
+.pw a.play:hover{opacity:.7}
+.p1 .m{grid-column:2/8}.p1 .side{grid-column:9/13}
+.p2 .side{grid-column:3/11;align-self:start}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding-block:22px 0;margin-top:20px}
+footer .lab{color:var(--mute);display:block;margin-bottom:2px}
+footer .grid{row-gap:18px}
+
+/* detail views */
+.view{display:none}
+.view.on{display:block}
+.p-head{padding-block:58px 50px;align-items:start;row-gap:18px}
+.p-head .yr{color:var(--mute)}
+.p-head .role{margin-top:6px}
+.p-head h1{font-size:34px;font-weight:600;line-height:1.1;letter-spacing:-.01em;margin:0 0 12px}
+.p-head .dek{font-size:19px;line-height:1.5;text-wrap:balance}
+.p-head .go{text-align:right;text-transform:uppercase;letter-spacing:.06em}
+.label{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);font-weight:500;display:block;margin:0 0 10px}
+.insight{padding-block:0 60px;align-items:baseline}
+.insight blockquote{margin:0;font-size:19px;line-height:1.45}
+.insight .changed{margin-top:14px;color:var(--mute);font-size:15px;line-height:1.5;max-width:40em}
+.insight .changed b{color:var(--ink);font-weight:500}
+.blk{padding-block:0 var(--gut);align-items:start;row-gap:var(--gut)}
+.panel{background:var(--tint);display:flex;justify-content:center;align-items:center;gap:4%;padding:7% 5%}
+.panel img{width:auto;max-height:560px;max-width:34%;flex:0 1 auto}
+.panel.one img{max-width:70%;max-height:620px}
+.panel svg{width:100%;max-width:560px;height:auto;display:block}
+.cap{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin-top:8px}
+.cs{padding-block:70px 20px;border-top:1px solid var(--line);margin-top:50px;row-gap:36px;align-items:start}
+.cs p{font-size:15px;line-height:1.5;max-width:30em}
+.impact{padding-block:20px 40px;row-gap:24px}
+.impact .num{font-size:44px;font-stretch:100%;font-weight:500;line-height:1;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.impact p{margin-top:8px;color:var(--mute);max-width:24em;font-size:14px;line-height:1.45}
+.steps{list-style:none;margin:0;padding:0;counter-reset:s;display:contents}
+.steps li{counter-increment:s;grid-column:span 3}
+.steps li::before{content:"0" counter(s);display:block;font-family:var(--mono);font-size:13px;color:var(--mute);margin-bottom:10px}
+.steps b{display:block;font-weight:500;font-size:15px;margin-bottom:6px}
+.next{padding-block:40px 20px;font-size:19px;border-top:1px solid var(--line);margin-top:40px}
+
+
+.story{padding-block:44px 44px;border-top:1px solid var(--line);align-items:start;row-gap:12px}
+.story .body{display:grid;gap:16px}
+.story .body p,.findings li{font-size:15px;line-height:1.6;max-width:36em}
+.findings{margin:0;padding-left:1.2em;display:grid;gap:12px}
+.findings b{font-weight:500}
+ul.findings{list-style:none;padding-left:0}
+.fill{background:#FFF1A8;padding:0 3px;border-radius:2px;color:#5a4a00}
+.fillnum{color:#B8A040}
+.insight{border-top:1px solid var(--line);padding-top:40px}
+
+.pull{font-size:19px;line-height:1.45;border-left:1px solid var(--ink);padding-left:18px;max-width:30em}
+.scr{display:inline-block;white-space:nowrap}
+.sh{display:inline-block;width:.56em;height:.56em;margin:0 .03em;vertical-align:-.02em}
+.sh1{border-radius:50%}
+.sh2{clip-path:polygon(50% 0,100% 100%,0 100%)}
+header a.scr:hover,header button.scr:hover{opacity:1}
+.fx{padding:4% 3%;display:block}
+.fx-scroll{overflow-x:auto}
+.fx-scroll svg{min-width:640px;max-width:none;width:100%}
+.fx-legend{margin-top:24px;row-gap:20px}
+.fx-list{margin:0;padding:0;list-style:none;counter-reset:f;display:grid;gap:10px}
+.fx-list li{counter-increment:f;display:grid;grid-template-columns:22px minmax(0,1fr);gap:10px;font-size:14px;line-height:1.5}
+.fx-list li::before{content:counter(f);width:20px;height:20px;border-radius:50%;color:#fff;font-size:11px;font-weight:600;display:grid;place-items:center;margin-top:1px}
+.fx-list.bad li::before{background:#FF2A1F}
+.fx-list.good li::before{background:#1F5BFF}
+.fx-list b{font-weight:500}
+.blk video{display:block;width:100%;height:auto;max-width:100%;background:var(--ph)}
+.impact.top{border-top:1px solid var(--ink);padding-block:28px 32px;margin-bottom:0;align-items:start}
+.impact.top .num{font-size:36px}
+@media (max-width:820px){.impact.top .c3{grid-column:span 6}.impact.top .c3:first-child{grid-column:1/-1}}
+.skip{position:absolute;left:-9999px}.skip:focus{left:16px;top:16px;background:#fff;padding:8px 12px;z-index:20;outline:1px solid #000}
+@media (prefers-reduced-motion:reduce){video{animation:none}}
+.src{display:block;margin-top:6px;font-size:12px;color:var(--mute)}
+.src a{text-decoration:underline;text-underline-offset:2px}
+.press{padding-block:28px;border-top:1px solid var(--line);align-items:baseline}
+.press .c9{display:flex;flex-wrap:wrap;gap:8px 28px;font-size:15px}
+.press a{text-decoration:underline;text-underline-offset:3px}
+/* about */
+.about-top{padding-block:58px 70px;align-items:start;row-gap:24px}
+.bio{font-size:19px;line-height:1.5}
+.bio p+p{margin-top:22px}
+.cv{padding-block:0 60px;align-items:start;row-gap:40px}
+.cv .h3{font-size:13px;font-weight:500;margin:0 0 14px}
+.cv ul{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.cv li span{display:block;color:var(--mute)}
+
+@media (max-width:820px){
+  :root{--side:16px;--gut:18px;--rh:auto}
+  .c3,.c4,.c5,.c6,.c8,.c9,.strip,.intro .pos,.intro .sub,.p1 .m,.p1 .side,.p2 .side{grid-column:1/-1}
+  .o3,.o4{grid-column-start:1}
+  .strip{height:auto;overflow-x:auto;margin-bottom:18px}
+  .strip img,.strip .tile{height:240px}
+  .p-head .go{text-align:left}
+  .steps li{grid-column:span 6}
+  .pw{margin-bottom:70px}
+  .pw .side{margin-top:18px}
+  .personal .mark{margin-bottom:40px}
+  header{font-size:17px}
+}
+@media (max-width:480px){.steps li{grid-column:1/-1}}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+</head>
+<body>
+<a class="skip" href="#home">Skip to work</a>
+<header>
+  <a href="#" data-go="home" class="scr" data-t="Ida Dilfer">Ida Dilfer</a>
+  <nav aria-label="Main">
+    <a href="#" data-go="home">Work</a><a href="#about">About</a><a href="https://www.linkedin.com/in/idadilfer/">LinkedIn</a><button type="button" class="copy" id="copy-email" aria-label="Copy email address idatinker@gmail.com">Email</button>
+  </nav>
+</header>
+
+<!-- ============ HOME ============ -->
+<main id="home" class="view on">
+  <section class="intro grid">
+    <h1 class="pos">I'm a design researcher and strategist.</h1>
+    <p class="sub">Alongside my work, I research curiosity, creativity and courage, and what makes human and AI collaboration better through trust and confidence.</p>
+    <div class="tags"><span>User research</span><span>Strategy</span><span>Service design</span><span>Health tech</span><span>Fintech</span><span>Family</span><span>12+ years · London</span></div>
+  </section>
+
+  <article class="row grid">
+    <a class="strip" href="#connectd"><img src="con-dashboard-hd.jpg" alt="Connectd founder dashboard after the onboarding rebuild" width="2000" height="1600"><img src="con-hero.webp" alt="Connectd product overview" width="640" height="626"></a>
+    <a class="c4 meta" href="#connectd"><h2>Connectd</h2><div class="yr">2024 · Lead product designer</div><p class="q">Why do founders leave so soon after signing up?</p><p>I interviewed every investor, 20 advisors and 34 founders, then convinced the founder to drop investors altogether.</p><p class="hit">Raised $7M after the redesign</p><div class="tags"><span>Journey mapping</span><span>Multi-sided research</span><span>Strategy</span></div></a>
+  </article>
+
+  <article class="row grid">
+    <a class="strip" href="#oia"><img src="oia-face.webp" alt="Oia maps facial features through the phone" width="640" height="640"><img src="oia-phone2.webp" alt="Oia chat: a patient sends a video note" width="450" height="900" style="background:none"></a>
+    <a class="c4 meta" href="#oia"><h2>Oia</h2><div class="yr">2025 · heyoia.com</div><p class="q">What makes a cosmetic treatment journey genuinely safe?</p><p>Studied patient journeys that went wrong and designed safety into the service itself.</p><p class="hit">3,000 transacting users</p><div class="tags"><span>Patient research</span><span>Service design</span><span>Conversation design</span></div></a>
+  </article>
+
+  <article class="row grid">
+    <a class="strip" href="#journey"><img src="jf-search.jpg" alt="Journey Fertility search on web, options compared side by side" width="2000" height="1250"><img src="jf-home-phone.png" alt="Journey Fertility on mobile" width="428" height="900" style="background:none"></a>
+    <a class="c4 meta" href="#journey"><h2>Journey Fertility</h2><div class="yr">2025 to now · journeyfertility.com</div><p class="q">How do women make life-shaping fertility decisions with so little information?</p><p>53 interviews with women going through IVF and planning to freeze eggs or embryos shaped a search that starts with "where are you right now?"</p><div class="tags"><span>Research</span><span>Information architecture</span><span>Brand</span></div></a>
+  </article>
+
+  <article class="row grid">
+    <a class="strip" href="#agatha"><img src="agatha-concept.jpg" alt="Agatha concept screens" width="3360" height="1920"></a>
+    <a class="c4 meta" href="#agatha"><h2>Agatha</h2><div class="yr">2026 · In discovery</div><p class="q">Why do real health patterns go unseen for years?</p><p>A one-minute voice log that turns a woman's own days into a timeline she can take to her GP.</p><div class="tags"><span>Discovery</span><span>Competitor research</span><span>Service design</span></div></a>
+  </article>
+
+  <article class="row grid">
+    <a class="strip" href="#bury"><img src="bury-app.jpg" alt="The Bury app concept" width="2880" height="1800"></a>
+    <a class="c4 meta" href="#bury"><h2>The Bury</h2><div class="yr">2026 · Founder · Work in progress</div><p class="q">What would a members' club look like if families designed it with us?</p><p>A family members' club in Chesham Old Town, shaped with its first 100 founding families.</p><p class="hit">100 of 100 founding places claimed</p><div class="tags"><span>Participatory design</span><span>Service design</span><span>Business strategy</span></div></a>
+  </article>
+
+  <article class="row grid">
+    <a class="strip" href="#magpie"><img src="mp-hero.jpg" alt="Magpie website: Find the people who need your product now" width="1942" height="1110"></a>
+    <a class="c4 meta" href="#magpie"><h2>Magpie</h2><div class="yr">2026 · Live at magpie.magnaven.com</div><p class="q">How do you interview early adopters at scale, and well?</p><p>An AI-powered framework that finds a product's early adopters, interviews them and turns them into advocates.</p><div class="tags"><span>AI research</span><span>Interviewing</span><span>Synthesis</span></div></a>
+  </article>
+
+  <article class="row grid">
+    <a class="strip" href="#letterbird"><img src="lb-home.jpg" alt="Letterbird welcome screen and calendar of journal pages" width="880" height="800"><img src="lb-calls.webp" alt="Letterbird incoming call and on-call screens, animated" width="880" height="800"></a>
+    <a class="c4 meta" href="#letterbird"><h2>Letterbird</h2><div class="yr">2026 · Lead designer</div><p class="q">Why do most people give up journaling within a week?</p><p class="hit">70% daily active, 1,000 invite-only users</p><p>A voice journal that rings once a day, asks a few gentle questions and keeps what you say as a page.</p><div class="tags"><span>UI design</span><span>Motion design</span><span>Habit design</span></div></a>
+  </article>
+
+  <section class="personal" aria-label="Personal research">
+    <div class="mark"><span>//</span><span>Personal research</span></div>
+    <div class="pw grid p1">
+      <div class="m"><img src="pw-mum-1.gif" alt="Hand tracking game: an open hand reaches for a gem" width="640" height="308"></div>
+      <div class="side"><p><b>A game for Mum.</b></p><p>My mum has Parkinson's. I designed this from close observation of her daily exercises. Hand and face tracking turn them into play: open your hand over a gem, then close it to grab. Research with a sample of one, for someone at the edge of the data.</p><p><a class="play" href="#mum">Read the case study →</a> &nbsp; <a class="play" href="https://mum.magnaven.com">Play it</a></p></div>
+    </div>
+    <div class="pw grid p2">
+      <div class="side"><p><b>Curiosity, creativity and courage.</b></p><p>How do people find the courage to move forward when the odds, the statistics and the people around them say they won't? Talent isn't a fixed gift; environment shapes what people achieve. This ongoing research shapes how I listen, and how I design for people on the edges of the data.</p></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="grid">
+      <div class="c4"><span class="lab">Email</span>idatinker@gmail.com</div>
+      <div class="c4"><span class="lab">Elsewhere</span><a href="https://www.linkedin.com/in/idadilfer/">LinkedIn</a></div>
+      <div class="c4"><span class="lab">Ask me</span>What's the hardest research problem you're working on right now?</div>
+    </div>
+  </footer>
+</main>
+
+<!-- ============ CONNECTD ============ -->
+<main id="connectd" class="view">
+  <section class="p-head grid">
+    <div class="c3"><h1>Connectd</h1><div class="yr">2024</div><div class="role">Lead product designer · Sole designer</div></div>
+    <div class="c6"><p class="dek">A marketplace matching startups with advisors and fractional leaders. Founders were signing up, then leaving.</p><div class="tags"><span>Interviews</span><span>Synthesis</span><span>Marketplace strategy</span><span>Onboarding</span></div></div>
+    <div class="c3 go"><a href="https://connectd.co">connectd.co ></a></div>
+  </section>
+  <section class="impact top grid">
+    <div class="c3"><span class="label">Impact</span></div>
+    <div class="c3"><div class="num">$7M</div><p>raised by Connectd in July 2025, after the redesign, in a round led by Anker<span class="src">Source: <a href="https://www.vestbee.com/insights/articles/connectd-raises-7-m">Vestbee</a></span></p></div>
+    <div class="c3"><div class="num">54+</div><p>interviews across investors, advisors and founders</p></div>
+  </section>
+
+  <section class="story grid">
+    <div class="c3"><span class="label">The problem</span></div>
+    <div class="c6 body"><p>Connectd served three groups: startups, advisors and investors. Founders signed up, then left soon after.</p></div>
+  </section>
+  <section class="story grid">
+    <div class="c3"><span class="label">What I did</span></div>
+    <div class="c6 body"><p>I interviewed every investor on the platform, 20 advisors and 34 founders, to find out why.</p></div>
+  </section>
+  <section class="story grid">
+    <div class="c3"><span class="label">What I found</span></div>
+    <div class="c6 body">
+      <ul class="findings">
+        <li>Founders chased investors for funding, when what they needed first was advisory support to become investment-ready.</li>
+        <li>Investors saw value in the advisor match but wouldn't join a platform. As one put it: <i>"I don't really feel I need another platform for that."</i></li>
+        <li>Advisors, the paying users, saw very little demand from startups.</li>
+      </ul>
+    </div>
+  </section>
+  <section class="story grid">
+    <div class="c3"><span class="label">The decision</span></div>
+    <div class="c6 body"><p>I convinced the founder to drop investors and focus on startups and advisors. Then I designed founder education and advisor education, so both sides understood the value from the first screen.</p></div>
+  </section>
+
+  <section class="blk grid"><div class="c12"><div class="panel fx"><div class="fx-scroll"><svg viewBox="0 0 1000 380" font-family="Open Sans, Arial, sans-serif" font-size="13" role="img" aria-labelledby="fx-t">
+<title id="fx-t">Before: five friction points between startups, advisors and investors. After: four ways the two-sided product creates value.</title>
+<text x="20" y="40" fill="#000" font-size="11" letter-spacing="1.5">BEFORE · THREE SIDES</text>
+<text x="20" y="62" fill="#8a8a8a">Founders signed up, then left</text>
+<line x1="110" y1="150" x2="370" y2="150" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="370" y1="150" x2="240" y2="300" stroke="#8a8a8a" stroke-width="1"/>
+<line x1="110" y1="150" x2="240" y2="300" stroke="#FF2A1F" stroke-width="3"/>
+<circle cx="110" cy="150" r="7" fill="#000"/><circle cx="370" cy="150" r="7" fill="#000"/><circle cx="240" cy="300" r="7" fill="#000"/>
+<text x="110" y="128" text-anchor="middle" fill="#000">Startups</text><text x="370" y="128" text-anchor="middle" fill="#000">Advisors</text><text x="240" y="332" text-anchor="middle" fill="#000">Investors</text>
+<circle cx="240" cy="150" r="11" fill="#FF2A1F"/><text x="240" y="154" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">1</text><circle cx="170" cy="220" r="11" fill="#FF2A1F"/><text x="170" y="224" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">2</text><circle cx="270" cy="292" r="11" fill="#FF2A1F"/><text x="270" y="296" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">3</text><circle cx="80" cy="150" r="11" fill="#FF2A1F"/><text x="80" y="154" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">4</text><circle cx="400" cy="150" r="11" fill="#FF2A1F"/><text x="400" y="154" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">5</text>
+<line x1="500" y1="30" x2="500" y2="350" stroke="#d9d6d0" stroke-width="1"/>
+<text x="540" y="40" fill="#000" font-size="11" letter-spacing="1.5">AFTER · TWO SIDES</text>
+<text x="540" y="62" fill="#8a8a8a">Founders arrive knowing what to ask for</text>
+<line x1="630" y1="190" x2="890" y2="190" stroke="#1F5BFF" stroke-width="3"/>
+<line x1="760" y1="198" x2="760" y2="290" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="3 4"/>
+<path d="M754 284 L760 296 L766 284" fill="none" stroke="#8a8a8a" stroke-width="1"/>
+<circle cx="630" cy="190" r="8" fill="#000"/><circle cx="890" cy="190" r="8" fill="#000"/>
+<circle cx="760" cy="310" r="8" fill="#fff" stroke="#8a8a8a" stroke-dasharray="2 2"/>
+<text x="630" y="168" text-anchor="middle" fill="#000">Startups</text><text x="890" y="168" text-anchor="middle" fill="#000">Advisors</text>
+<text x="760" y="342" text-anchor="middle" fill="#8a8a8a">Investors, off the platform</text>
+<circle cx="760" cy="190" r="11" fill="#1F5BFF"/><text x="760" y="194" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">1</text><circle cx="920" cy="190" r="11" fill="#1F5BFF"/><text x="920" y="194" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">2</text><circle cx="776" cy="248" r="11" fill="#1F5BFF"/><text x="776" y="252" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">3</text><circle cx="600" cy="190" r="11" fill="#1F5BFF"/><text x="600" y="194" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">4</text>
+</svg></div></div>
+  <div class="grid fx-legend">
+    <ol class="c6 fx-list bad">
+      <li><span><b>Founders didn't know how advisors could help,</b> so they didn't know what to ask for.</span></li>
+      <li><span><b>Founders chased investors</b> for funding instead of the advisory support that would make their business investment-ready.</span></li>
+      <li><span><b>Investors were swamped and didn't reply.</b> They didn't need another platform.</span></li>
+      <li><span><b>Founders left disappointed</b> soon after signing up.</span></li>
+      <li><span><b>Advisors, the paying users,</b> saw very little demand from startups.</span></li>
+    </ol>
+    <ol class="c6 fx-list good">
+      <li><span><b>Founder education:</b> founders arrive knowing what an advisor can do and what to ask for.</span></li>
+      <li><span><b>Advisor education:</b> advisors show what they can do for a startup, so value is clear at a glance.</span></li>
+      <li><span><b>A strong advisory bench</b> makes a startup more interesting to investors, who meet them outside the platform.</span></li>
+      <li><span><b>Founders stay:</b> onboarding becomes the start of retention.</span></li>
+    </ol>
+  </div>
+  <span class="cap">Frictions before, value after</span></div></section>
+
+  <section class="blk grid"><div class="c12"><video src="con-demo.mp4" poster="con-demo-poster.jpg" autoplay muted loop playsinline controls width="1600" height="704" aria-label="Screen recording: a founder searches advisors by expertise, each profile showing what the advisor has helped startups achieve"></video><span class="cap">Advisors presented by what they've helped startups achieve</span></div></section>
+  <section class="blk grid"><div class="c12"><img src="con-dashboard-hd.jpg" alt="Connectd founder dashboard with three first actions" width="2000" height="1600" loading="lazy"><span class="cap">Every new founder starts with three clear actions</span></div></section>
+  <section class="press grid"><div class="c3"><span class="label">Press</span></div><div class="c9"><a href="https://www.vestbee.com/insights/articles/connectd-raises-7-m">Vestbee: Connectd raises $7M</a><a href="https://www.scommerce.com/connectd-raises-5-5m-in-funding-round/">Scommerce: Connectd raises £5.5m</a></div></section>
+  <div class="next"><a href="#oia">Next: Oia →</a></div>
+</main>
+
+<!-- ============ OIA ============ -->
+<main id="oia" class="view">
+  <section class="p-head grid">
+    <div class="c3"><h1>Oia</h1><div class="yr">2025</div><div class="role">Lead designer, researcher and strategist</div></div>
+    <div class="c6"><p class="dek">People planning a cosmetic treatment spend weeks lost in research they can't judge. I set out to understand where those journeys go wrong, then designed a service where an AI concierge, Oia, carries the patient safely from first question to recovery.</p><div class="tags"><span>Generative research</span><span>Service design</span><span>Conversation design</span><span>Prototyping</span><span>AI product</span></div></div>
+    <div class="c3 go"><a href="https://heyoia.com">heyoia.com ></a></div>
+  </section>
+
+  <section class="impact top grid">
+    <div class="c3"><span class="label">Impact</span></div>
+    <div class="c3"><div class="num">3,000</div><p>users who have transacted with Oia<span class="src">Source: Oia platform data, November 2026</span></p></div>
+    <div class="c3"><div class="num">30+</div><p>patients and surgeons interviewed and iterated with</p></div>
+    <div class="c3"><div class="num">Growing</div><p>now expanding from cosmetic treatments into longevity<span class="src"><a href="https://heyoia.com">heyoia.com</a></span></p></div>
+  </section>
+
+  <section class="story grid">
+    <div class="c3"><span class="label">The problem</span></div>
+    <div class="c6 body"><p>Planning a cosmetic treatment means comparing clinics across countries, prices that hide extras, and before and after photos nobody can verify. When it goes wrong, it really matters: the wrong treatment, the wrong surgeon, or no one looking after you once you fly home.</p></div>
+  </section>
+  <section class="story grid">
+    <div class="c3"><span class="label">What I did</span></div>
+    <div class="c6 body"><p>I spoke with more than 30 patients and surgeons, from people considering treatment to people recovering from it, and mapped the journey from first search to full recovery to see where trust breaks.</p></div>
+  </section>
+  <section class="story grid">
+    <div class="c3"><span class="label">What I found</span></div>
+    <div class="c6 body">
+      <ul class="findings">
+        <li><b>People don't want more options. They want to trust one.</b></li>
+        <li><b>Most don't know which treatment they need.</b> They know what bothers them.</li>
+        <li><b>Photos only help when they're like for like:</b> results on people like them, from that surgeon.</li>
+      </ul>
+    </div>
+  </section>
+  <section class="story grid">
+    <div class="c3"><span class="label">The decision</span></div>
+    <div class="c6 body"><p>Make the conversation the whole product. Oia starts from the person's concern, matches on verified results rather than paid placement, explains every match, and never makes a medical call. A person reviews every shortlist.</p></div>
+  </section>
+
+  <section class="blk grid"><div class="c12"><div class="panel"><img src="oia-ph-chat.webp" alt="Oia conversation: describing a concern" width="550" height="1100" loading="lazy"><img src="oia-ph-match.webp" alt="Oia shows matched clinics" width="550" height="1100" loading="lazy"><img src="oia-ph-trip.webp" alt="Oia plans the trip" width="550" height="1100" loading="lazy"></div><span class="cap">Talk, match, travel: the whole journey in one conversation</span></div></section>
+
+  <section class="story grid">
+    <div class="c3"><span class="label">What I learned</span></div>
+    <div class="c6 body"><p>I designed the screens first and fitted Oia's words in afterwards, and it felt bolted on. For an AI agent, the dialogue is the design. Now I script the conversation first and treat Oia's voice and limits like a design system.</p></div>
+  </section>
+  <section class="blk grid"><div class="c12"><img src="oia-visit.jpg" alt="Concept for a virtual clinic visit" width="1200" height="1200" loading="lazy" style="max-width:720px"><span class="cap">Concept: virtual clinic visit</span></div></section>
+  <div class="next"><a href="#journey">Next: Journey Fertility →</a></div>
+</main>
+
+<!-- ============ JOURNEY FERTILITY ============ -->
+<main id="journey" class="view">
+  <section class="p-head grid">
+    <div class="c3"><h1>Journey Fertility</h1><div class="yr">2025 to now</div><div class="role">Lead designer, researcher and strategist</div></div>
+    <div class="c6"><p class="dek">Every fertility story is a journey, and women know this better than anyone. Most begin it alone, late at night, with a search bar and a lot of questions. I set out to understand that journey before designing anything for it.</p><div class="tags"><span>User interviews</span><span>Observation</span><span>Needs-based segmentation</span><span>Information architecture</span><span>Brand</span></div></div>
+    <div class="c3 go"><a href="https://journeyfertility.com">journeyfertility.com ></a></div>
+  </section>
+
+  <section class="impact top grid">
+    <div class="c3"><span class="label">Impact</span></div>
+    <div class="c3"><div class="num">53</div><p>women going through IVF interviewed, alongside women planning to freeze eggs or embryos</p></div>
+    <div class="c3"><div class="num">500+</div><p>verified clinics worldwide in one search, with the true all-in price<span class="src"><a href="https://journeyfertility.com">journeyfertility.com</a></span></p></div>
+    <div class="c3"><div class="num">Live</div><p>at journeyfertility.com</p></div>
+  </section>
+
+  <section class="story grid">
+    <div class="c3"><span class="label">The problem</span></div>
+    <div class="c6 body">
+      <p>Women's health is underfunded and under-researched, and fertility is where that gap is felt most. Women make some of the most expensive, life-shaping decisions they will ever make with very little clear information.</p>
+      <p>Prices swing between clinics and countries, the real total hides behind a "from" price, and every route, from a hormone test to IVF, sits in its own corner of the web. So the research happens at midnight: forums, pushy discovery calls, half-finished spreadsheets.</p>
+    </div>
+  </section>
+
+  <section class="story grid">
+    <div class="c3"><span class="label">What I did</span></div>
+    <div class="c6 body">
+      <p>I spoke with 53 women going through IVF, and with women planning to freeze their eggs or embryos: different ages, lifestyles, decisions and reasons. I listened to how each of them started looking, where they got stuck, and what finally made them trust an answer.</p>
+      <p>I watched how people used early versions of the search, mapped the route from first worry to first booking, and took clinic prices apart into the medication, scans and storage fees that only appear at the end.</p>
+    </div>
+  </section>
+
+  <section class="story grid">
+    <div class="c3"><span class="label">What I found</span></div>
+    <div class="c6 body">
+      <ul class="findings">
+        <li><b>Most women act on very little data.</b> Fertility rarely comes up until something goes wrong. Many only start looking when they hit a wall, and that is often when they realise the best time to freeze their eggs has already passed.</li>
+        <li><b>Everyone arrives at a different moment.</b> Someone curious about her hormones, someone weighing egg freezing and someone starting IVF need completely different first steps, yet every service greets them with the same menu.</li>
+        <li><b>Hidden costs break trust.</b> A tidy "from" price becomes a very different total once everything is added.</li>
+        <li><b>Filters assume you already know the words.</b> In early versions, people stalled in front of a wall of filters.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="story grid">
+    <div class="c3"><span class="label">The decision</span></div>
+    <div class="c6 body"><p>Start from where she is, not from what clinics sell. The search opens with one plain, human question, "where are you right now?", then shows every option side by side with the true all-in cost, at home or abroad, before she ever picks up the phone.</p></div>
+  </section>
+
+  <section class="blk grid"><div class="c12"><img src="jf-search.jpg" alt="Hormone test search on web, options compared side by side" width="2000" height="1250" loading="lazy"><span class="cap">One calm search instead of ten anxious browser tabs</span></div></section>
+  <section class="blk grid"><div class="c6"><div class="panel one" style="padding:6% 5%"><img src="jf-home-phone.png" alt="Journey Fertility on mobile: compare at-home hormone kits and clinic checks with the true all-in price" width="428" height="900" loading="lazy" style="max-width:52%;max-height:520px"></div><span class="cap">Kits and clinic checks side by side, with the all-in price</span></div><div class="c6"><img src="jf-system.jpg" alt="Journey Fertility design system" width="2000" height="950" loading="lazy"><span class="cap">A warm brand in a category that feels clinical</span></div></section>
+
+  <section class="story grid">
+    <div class="c3"><span class="label">What I learned</span></div>
+    <div class="c6 body">
+      <ul class="findings">
+        <li><b>Depth before breadth.</b> I tried to hold all four routes in one view too soon. Proving the loop on one route first earns trust faster.</li>
+        <li><b>Honesty includes uncertainty.</b> Real prices are messy, so costs show as clearly labelled estimates rather than false precision.</li>
+        <li><b>Warmth needs a backbone.</b> The tone holds the feeling; the numbers hold the trust.</li>
+      </ul>
+    </div>
+  </section>
+  <div class="next"><a href="#agatha">Next: Agatha →</a></div>
+</main>
+
+<!-- ============ AGATHA ============ -->
+<main id="agatha" class="view">
+  <section class="p-head grid">
+    <div class="c3"><h1>Agatha</h1><div class="yr">2026</div><div class="role">Founder · Research and product</div></div>
+    <div class="c6"><p class="dek">Doctors see women's symptoms in pieces, one specialty at a time. Agatha gives her a one-minute daily voice log that becomes one timeline she can take to her GP.</p><div class="tags"><span>Discovery</span><span>Competitor research</span><span>Service design</span><span>Voice</span></div></div>
+  </section>
+  <section class="impact top grid">
+    <div class="c3"><span class="label">Impact</span></div>
+    <div class="c3"><div class="num">Restarted</div><p>scope refocused on the daily log and GP summary after research</p></div>
+    <div class="c3"><div class="num">Next</div><p>structured research with EDS patients before a closed beta</p></div>
+  </section>
+
+  <section class="insight grid">
+    <div class="c3"><span class="label">The moment it turned</span>Two real cases, including my own family's</div>
+    <div class="c8"><blockquote>The pattern was in the data all along. Nobody held the whole timeline.</blockquote><p class="changed">What it changed: <b>the product is the daily log and the GP summary. Research comes later, and only by choice.</b></p></div>
+  </section>
+
+  <section class="story grid">
+    <div class="c3"><span class="label">My approach</span></div>
+    <div class="c6 body">
+      <ul class="findings">
+        <li><b>Competitor research</b> showed voice logging alone isn't a differentiator. Agatha's edge is personal trials and a GP-ready summary checked against NHS guidance.</li>
+        <li><b>Conversations with people with complex conditions:</b> they're exhausted, and they already run informal trials. So the log is voice only, about a minute.</li>
+        <li><b>Hard lines:</b> never diagnose, never recommend, every pattern shown as "a pattern to watch, not proof".</li>
+      </ul>
+      <p>What I got wrong: my first prototype led with community research. I restarted with the daily log first. Next: structured research with EDS patients before a closed beta.</p>
+    </div>
+  </section>
+
+  <section class="blk grid"><div class="c12"><img src="agatha-concept.jpg" alt="Agatha concept screens: Agatha calls for a one-minute voice log, a cycle pattern view marked as a pattern to watch, a personal caffeine trial, and a one-page summary for the GP" width="3360" height="1920" loading="lazy"><span class="cap">Concept screens after the restart: log by voice, see the pattern, test your own idea, take it to your GP · illustrative data</span></div></section>
+  <div class="next"><a href="#bury">Next: The Bury →</a></div>
+</main>
+
+<!-- ============ THE BURY ============ -->
+<main id="bury" class="view">
+  <section class="p-head grid">
+    <div class="c3"><h1>The Bury</h1><div class="yr">2026 · Work in progress, opening 2027</div><div class="role">Founder · Research, service and business strategy</div></div>
+    <div class="c6"><p class="dek">A family members' club for Chiltern families, set on a 1712 estate in Chesham Old Town. Instead of designing it and selling it, I'm designing it with the families who will use it, and their answers have reshaped the plan.</p><div class="tags"><span>Participatory design</span><span>Service design</span><span>Business strategy</span><span>Proposition testing</span></div></div>
+    <div class="c3 go"><a href="https://thebury.club/foundingmembers">Founding families letter ></a></div>
+  </section>
+  <section class="impact top grid">
+    <div class="c3"><span class="label">Impact</span></div>
+    <div class="c3"><div class="num">100/100</div><p>founding places claimed before there was anything to see<span class="src">Source: <a href="https://thebury.club/foundingmembers">founding families letter</a></span></p></div>
+    <div class="c3"><div class="num">90 → 900+</div><p>families registered, September to October 2026</p></div>
+    <div class="c3"><div class="num">4</div><p>pillars, synthesised from families' answers, now shaping every space</p></div>
+  </section>
+
+  <section class="blk grid"><div class="c12"><img src="bury-estate.jpg" alt="Concept visualisation: families on the lawn, the 1712 manor reflected in its lake" width="1400" height="983" loading="lazy"><span class="cap">Concept render · The Bury, from across its lake</span></div></section>
+
+  <section class="insight grid">
+    <div class="c3"><span class="label">The moment it turned</span>Listening to founding families</div>
+    <div class="c8"><blockquote>The more we listened, the clearer it became: we didn't need a longer list of rooms. We needed a philosophy strong enough to shape every space.</blockquote><p class="changed">What it changed: <b>the whole club is now organised under four pillars, calm, curiosity, creativity and courage, and every space has to earn its place under one of them.</b></p></div>
+  </section>
+
+  <section class="story grid">
+    <div class="c3"><span class="label">The challenge</span></div>
+    <div class="c6 body">
+      <p>Family clubs are usually planned around facilities: a pool, a gym, a soft play. Parents' weeks are planned around everything else: school runs, work, childcare and the gaps between them. Most local options split the family up.</p>
+      <p>The question was what a club would look like if it started from a family's real week, and whether enough families would commit to it before there was anything to see.</p>
+    </div>
+  </section>
+
+  <section class="story grid">
+    <div class="c3"><span class="label">My approach</span></div>
+    <div class="c6 body">
+      <p>I tested the proposition before building anything. I approached 400 local families, screened for children under 12, and offered 100 founding places. Then I kept the founding families in the design process rather than treating them as customers:</p>
+      <ol class="findings">
+        <li><b>Their answers changed the plan.</b> Ideas families asked for, like a lakeside sauna, tree houses, an astronomy rooftop and an eco-garden with hens, are now in it, marked "new" so they can see their influence.</li>
+        <li><b>I synthesised a philosophy, not a feature list.</b> Calm comes first, because nobody dares when they're exhausted. Then curiosity, creativity and courage: a place where parents become beginners again and children watch them try.</li>
+        <li><b>I put real decisions to them.</b> Families vote on which library their children would explore more freely, and describe what a good working day here looks like before the co-working space is finalised.</li>
+      </ol>
+      <p>The library became the connective tissue of the house: quiet, chatty and playful corners side by side, two heights everywhere so a child can reach what a child may touch, and sightlines instead of walls so a child can always find a parent's face.</p>
+    </div>
+  </section>
+
+  <section class="blk grid"><div class="c12"><img src="bury-app.jpg" alt="App concept, three screens: the family's upcoming bookings, booking classes and spaces, and the swap shop for outgrown books, toys and clothes" width="2880" height="1800" loading="lazy"><span class="cap">App concept · one family's week, booking for everyone, and the swap shop</span></div></section>
+  <section class="blk grid">
+    <div class="c6"><img src="bury-stables.jpg" alt="Concept visualisation: the Stables courtyard alive with climbing and play" width="1400" height="1049" loading="lazy"><span class="cap">Concept render · The Stables and crash gym</span></div>
+    <div class="c6"><img src="bury-drawing-room.jpg" alt="Concept visualisation: the panelled adults-only drawing room and co-working space" width="1400" height="1049" loading="lazy"><span class="cap">Concept render · The Drawing Room and co-working</span></div>
+  </section>
+
+  <section class="story grid">
+    <div class="c3"><span class="label">What I built</span></div>
+    <div class="c6 body">
+      <ul class="findings">
+        <li><b>The service model.</b> Soft play and a crash gym, crèche and kids' classes for 0 to 12; co-working, studio classes and wellness for parents; a family kitchen, café and grounds for everyone.</li>
+        <li><b>The membership and business model.</b> Adult and child memberships, plus a founding membership that stays with families as their children grow.</li>
+        <li><b>The free Bury app.</b> Booking for every family member in one place, plus a swap shop for books, toys and pre-loved clothes, built while the estate takes shape.</li>
+        <li><b>A way of designing with members.</b> A founding families letter, regular updates and open questions, so the people who will use the club keep shaping it.</li>
+      </ul>
+      <p>What changed along the way: after a fire at the main house, we had to start again from the ground up. Rather than rebuild the old plan, I used it to step back and give the club a philosophy, shaped by what families had told us.</p>
+    </div>
+  </section>
+  <div class="next"><a href="#mum">Next: A game for Mum →</a></div>
+</main>
+
+<!-- ============ MUM ============ -->
+<main id="mum" class="view">
+  <section class="p-head grid">
+    <div class="c3"><h1>A game for Mum</h1><div class="yr">2026</div><div class="role">Personal project · Health</div></div>
+    <div class="c6"><p class="dek">My mum has Parkinson's and needs to move more every day. A game she used to love turned out to be the way in. This is how one game for one person became four, and the start of a support site for others like her.</p><div class="tags"><span>Observational research</span><span>Iterative prototyping</span><span>Accessibility</span><span>Health</span></div></div>
+    <div class="c3 go"><a href="https://mum.magnaven.com">mum.magnaven.com ></a></div>
+  </section>
+  <section class="impact top grid">
+    <div class="c3"><span class="label">Impact</span></div>
+    <div class="c3"><div class="num">4</div><p>movement games built, each around a different exercise<span class="src"><a href="https://mum.magnaven.com">Play Glimmer</a></span></p></div>
+    <div class="c3"><div class="num">PDkin</div><p>a planned non-profit for people with Parkinson's and carers, UK and Turkey</p></div>
+  </section>
+
+  <section class="insight grid">
+    <div class="c3"><span class="label">The moment it turned</span>Remembering what she used to enjoy</div>
+    <div class="c8"><blockquote>Exercise felt like a chore. A game she already loved felt like hers.</blockquote><p class="changed">What it changed: <b>hide the exercise inside the game, not the other way round.</b></p></div>
+  </section>
+
+  <section class="story grid">
+    <div class="c3"><span class="label">The challenge</span></div>
+    <div class="c6 body">
+      <p>My mum is very immobile. She needs to move every day, but the exercises are repetitive, and on a hard day they're the first thing to go.</p>
+    </div>
+  </section>
+
+  <section class="story grid">
+    <div class="c3"><span class="label">My approach</span></div>
+    <div class="c6 body">
+      <p>Research with a sample of one. I watched her daily exercises to see which movements she could manage and which she skipped. She used to love Bejeweled-style games, so I built on that memory instead of asking her to form a new habit. In the first game, Glimmer, you open your hand over a gem, then close it to grab.</p>
+    </div>
+  </section>
+
+  <section class="blk grid"><div class="c6"><img src="pw-mum-1.gif" alt="Hand tracking: an open hand reaches for a gem" width="640" height="308" loading="lazy"></div><div class="c6"><img src="pw-mum-2.gif" alt="Closing the hand grabs the gem" width="640" height="308" loading="lazy"></div></section>
+
+  <section class="story grid">
+    <div class="c3"><span class="label">Three more games</span></div>
+    <div class="c6 body"><p>Each one takes on a different movement. All run in a normal browser with a webcam, in English and Turkish, and the camera picture never leaves the computer.</p></div>
+  </section>
+  <section class="blk grid">
+    <div class="c4"><a href="https://mural.magnaven.com"><img src="game-mural.jpg" alt="Mural: a painting game made of light, played with the hand or a gentle turn of the head" width="1920" height="1200" loading="lazy"></a><span class="cap">Mural · paint with your hand or head · mural.magnaven.com</span><p style="font-size:14px;line-height:1.5;margin-top:8px;max-width:30em">Slow, small or shaky movements all paint beautifully. No timer, nothing can go wrong.</p></div>
+    <div class="c4"><a href="https://bloom.magnaven.com"><img src="game-bloom.jpg" alt="Soft Bloom: water your trees with gentle arm movements" width="1920" height="1200" loading="lazy"></a><span class="cap">Soft Bloom · arms up and out · bloom.magnaven.com</span><p style="font-size:14px;line-height:1.5;margin-top:8px;max-width:30em">Gentle arm raises water a garden, with breathing and voice built in.</p></div>
+    <div class="c4"><a href="https://zest.magnaven.com"><img src="game-zest.jpg" alt="Zest: a gentle balloon-popping game played with a wave of the hand" width="1920" height="1200" loading="lazy"></a><span class="cap">Zest · wave, shout, raise your eyebrows · zest.magnaven.com</span><p style="font-size:14px;line-height:1.5;margin-top:8px;max-width:30em">Hand waves, voice and facial movement, in short, lively bursts.</p></div>
+  </section>
+
+  <section class="story grid">
+    <div class="c3"><span class="label">What I built</span></div>
+    <div class="c6 body">
+      <p>Four games and the start of PDkin, a planned non-profit for people with Parkinson's and their carers in the UK and Turkey.</p>
+      <p>What I learned: designing for one person forces you to be specific. Every choice had to fit her hands, her energy and her memories, and that is what made it useful to others.</p>
+    </div>
+  </section>
+
+  <section class="story grid essay-sec">
+    <div class="c3"><span class="label">Why this matters to me</span>Curiosity, creativity and courage</div>
+    <div class="c6 body">
+      <p class="pull">How do people keep moving forward when the odds, the statistics and the people around them say they won't?</p>
+      <p>I'm researching that question alongside my work. I see two kinds of courage. One says "if they did it, I can too". The other keeps going against the odds without following everyone else: not giving up, resting when tired, then carrying on.</p>
+      <p>Building for my mum taught me the second kind. It's also how I design: for the people on the edges of the data, who need a reason to keep going more than a perfect average.</p>
+    </div>
+  </section>
+  <div class="next"><a href="#magpie">Next: Magpie →</a></div>
+</main>
+
+<!-- ============ MAGPIE ============ -->
+<main id="magpie" class="view">
+  <section class="p-head grid">
+    <div class="c3"><h1>Magpie</h1><div class="yr">2026 · Live</div><div class="role">Founder · Research method and service design</div></div>
+    <div class="c6"><p class="dek">Most founders never properly define their early adopters, so they build for whoever is willing to talk. Magpie is my research method for finding the people who need a product now, interviewing them well, and turning them into its first advocates.</p><div class="tags"><span>Early adopter research</span><span>AI interviewing</span><span>Synthesis</span><span>Service design</span></div></div>
+    <div class="c3 go"><a href="https://magpie.magnaven.com">magpie.magnaven.com ></a></div>
+  </section>
+
+  <section class="impact top grid">
+    <div class="c3"><span class="label">Impact</span></div>
+    <div class="c3"><div class="num">Live</div><p>as a research service for start-ups and scale-ups<span class="src"><a href="https://magpie.magnaven.com">magpie.magnaven.com</a></span></p></div>
+    <div class="c3"><div class="num">20 to 30</div><p>early adopter interviews in a four-week study</p></div>
+    <div class="c3"><div class="num">4</div><p>outputs a team can act on: a scored shortlist, tagged transcripts, a priority report and an advocate plan</p></div>
+  </section>
+
+  <section class="blk grid"><div class="c12"><img src="mp-hero.jpg" alt="Magpie website: Find the people who need your product now" width="1942" height="1110" loading="lazy"><span class="cap">magpie.magnaven.com</span></div></section>
+
+  <section class="story grid">
+    <div class="c3"><span class="label">The problem</span></div>
+    <div class="c6 body"><p>Early teams hear from whoever replies first, not from the people who need the product most. Focus groups add noise, and polite feedback hides the real need. Getting this wrong can cost a whole funding round.</p></div>
+  </section>
+  <section class="story grid">
+    <div class="c3"><span class="label">What I did</span></div>
+    <div class="c6 body"><p>I grounded the method in forty years of innovation research, from Rogers' diffusion of innovations to lead-user studies, and in my own work at Connectd and Oia. Then I turned the way I run research into four repeatable stages, with an AI interviewer doing the part that doesn't scale.</p></div>
+  </section>
+  <section class="blk grid"><div class="c12"><img src="mp-why.jpg" alt="Why early adopters, not focus groups: a small group of about one in seven buyers sets the pace" width="1942" height="1170" loading="lazy"><span class="cap">The evidence behind the method</span></div></section>
+
+  <section class="story grid">
+    <div class="c3"><span class="label">What I found</span></div>
+    <div class="c6 body">
+      <ul class="findings">
+        <li><b>People don't always say what they mean.</b> They give a confident answer that isn't quite true, or ask for a solution when what they have is a need. The interviewer has to ask the next question.</li>
+        <li><b>Early adopters are different.</b> They live with the problem today and can describe it in depth, but their insight rarely arrives as a neat sentence.</li>
+        <li><b>One round of interviews isn't enough.</b> The value comes from staying close as the product changes.</li>
+      </ul>
+    </div>
+  </section>
+  <section class="story grid">
+    <div class="c3"><span class="label">The decision</span></div>
+    <div class="c6 body"><p>Pair a clear human method with a trained AI interviewer that builds a profile of each early adopter, checks in at every iteration, and digs past the "faster horses" answer. It always discloses that it is AI, and nobody is quoted or named without consent.</p></div>
+  </section>
+  <section class="blk grid"><div class="c12"><img src="mp-stages.jpg" alt="Four stages: identify the real early adopters, interview them at scale, find the patterns, turn them into advocates" width="1942" height="855" loading="lazy"><span class="cap">Four stages, from signal to advocacy</span></div></section>
+  <section class="blk grid"><div class="c12"><img src="mp-offer.jpg" alt="What a team gets: early adopter research, AI interviewing, synthesis, influence and advocacy" width="1942" height="1120" loading="lazy"><span class="cap">Research a team can act on, not a deck that sits in a drive</span></div></section>
+  <div class="next"><a href="#letterbird">Next: Letterbird →</a></div>
+</main>
+
+<!-- ============ LETTERBIRD ============ -->
+<main id="letterbird" class="view">
+  <section class="p-head grid">
+    <div class="c3"><h1>Letterbird</h1><div class="yr">2026</div><div class="role">Lead designer · Sole designer</div></div>
+    <div class="c6"><p class="dek">A voice journal with no typing. Letterbird calls once a day at a time you choose, asks up to three gentle questions, and keeps what you say as a page. I designed the UI and the motion kit for the Letterbird team.</p><div class="tags"><span>UI design</span><span>Motion design</span><span>Habit design</span></div></div>
+  </section>
+
+  <section class="impact top grid">
+    <div class="c3"><span class="label">Impact</span></div>
+    <div class="c3"><div class="num">1,000</div><p>users in an invite-only MVP</p></div>
+    <div class="c3"><div class="num">70%</div><p>of users active every day</p></div>
+  </section>
+
+  <section class="story grid">
+    <div class="c3"><span class="label">The problem</span></div>
+    <div class="c6 body"><p>Journaling apps ask you to sit down and write, and most people stop within a week.</p></div>
+  </section>
+  <section class="story grid">
+    <div class="c3"><span class="label">The decision</span></div>
+    <div class="c6 body"><p>Take the writing away. One call a day asks the questions and turns your answers into a page, in your own words, not a transcript. If you miss it, it tries once more, then lets the day go.</p></div>
+  </section>
+
+  <section class="blk grid"><div class="c12"><img src="lb-setup.jpg" alt="Welcome, choose your questions and set the call time" width="1760" height="1100" loading="lazy"><span class="cap">Setup in three screens</span></div></section>
+  <section class="blk grid"><div class="c6"><img src="lb-calls.webp" alt="Incoming call and on-call screens, animated" width="880" height="800" loading="lazy"><span class="cap">The call</span></div><div class="c6"><img src="lb-home.jpg" alt="Welcome screen and the calendar of pages" width="880" height="800" loading="lazy"><span class="cap">A calendar that fills as you pick up</span></div></section>
+  <section class="blk grid"><div class="c12"><img src="lb-motion.webp" alt="The motion kit: bird in flight, ringing, listening, writing it down, sprig grows" width="1316" height="640" loading="lazy"><span class="cap">Motion carries the state: ringing, listening, writing, saved</span></div></section>
+  <section class="blk grid"><div class="c12"><img src="lb-pages.webp" alt="Your pages and a single page, animated" width="1600" height="1000" loading="lazy"><span class="cap">Your words, kept as pages</span></div></section>
+
+  <section class="story grid">
+    <div class="c3"><span class="label">What I learned</span></div>
+    <div class="c6 body">
+      <ul class="findings">
+        <li><b>Remove the hardest step instead of rewarding it.</b> Taking the writing away does more for a daily habit than streaks or badges.</li>
+        <li><b>Motion carries the state.</b> When there is almost no UI on a call, each animation has to tell you what is happening.</li>
+      </ul>
+    </div>
+  </section>
+  <div class="next"><a href="#connectd">Next: Connectd →</a></div>
+</main>
+
+<!-- ============ ABOUT ============ -->
+<main id="about" class="view">
+  <section class="about-top grid">
+    <div class="c3"><h1 style="font-size:19px;font-weight:500;margin:0">Ida Dilfer</h1><div style="color:var(--mute)">Design researcher and strategist</div></div>
+    <div class="c8 bio">
+      <p>I talk to the people a product is for, try to understand what matters to them, and help teams make sense of what they've learned and decide what to build next.</p>
+      <p>I have a neurodivergent mind that's naturally drawn to patterns. It moves between a founder's frustration, a woman's midnight spreadsheet of fertility clinics and a parent's Saturday, looking for the things that connect them. That's often where my work begins.</p>
+      <p>I've worked across health tech, fintech, AI and family products, with teams ranging from VCCP and Fidelity to early-stage start-ups. I've also built ventures of my own, starting with Tinkfabrik, a co-creation platform for sustainability that was runner-up at the MIT Business Plan Competition. Being a founder changed how I think about research. It's not just about gathering insights; it's about helping people make difficult decisions with a little more clarity.</p>
+      <p>Alongside my design work, I'm interested in curiosity, creativity and courage: what keeps people going when things get difficult, and how we learn to trust AI without losing trust in ourselves. These interests go back to being a creative kid who didn't quite fit in at school. They still influence how I approach design, particularly when working with people whose experiences aren't always reflected in the data.</p>
+      <p>I've lived and worked in London, Barcelona, San Francisco and Istanbul, and enjoy sharing what I learn through teaching. Most recently, I led a Design Research with AI workshop at NABA Milan.</p>
+      <p style="font-size:13px">idatinker@gmail.com · <a href="https://www.linkedin.com/in/idadilfer/" style="text-decoration:underline">LinkedIn</a></p>
+    </div>
+  </section>
+  <section class="cv grid" style="padding-bottom:40px">
+    <div class="c12"><h2 class="h3">How I work with teams</h2></div>
+    <div class="c4"><p style="font-size:15px;line-height:1.55"><b style="font-weight:500">Real voices in the room.</b> I bring the people we're designing for into every conversation, in their own words, so decisions are argued from evidence, not opinion.</p></div>
+    <div class="c4"><p style="font-size:15px;line-height:1.55"><b style="font-weight:500">Safe to say what you see.</b> Synthesis works when everyone can share a half-formed thought. I make room for contradictions and quiet voices.</p></div>
+    <div class="c4"><p style="font-size:15px;line-height:1.55"><b style="font-weight:500">Leave aligned.</b> Research needs a recommendation. At Connectd, one clear recommendation took the product from three sides to two.</p></div>
+  </section>
+  <section class="cv grid">
+    <div class="c4"><h2 class="h3">Experience</h2><ul>
+      <li>Journey Fertility<span>Researcher, product and brand designer · 2025 to now</span></li>
+      <li>Oia<span>Lead designer · 2025</span></li>
+      <li>Connectd<span>Lead product designer · 2024</span></li>
+      <li>VCCP · Fidelity · Vitality<span>Senior product designer · 2020 to 2023</span></li>
+      <li>Nexus · BBA · Koffeecup · Field.io<span>Agencies · 2018 to 2020</span></li>
+      <li>Jack Morton<span>Creative designer · 2016 to 2018</span></li>
+      <li>Magna Ventures<span>Co-founder · 2016 to now</span></li>
+      <li>Tinkfabrik<span>Co-founder · 2011</span></li>
+    </ul></div>
+    <div class="c4"><h2 class="h3">Education</h2><ul>
+      <li>Istanbul Technical University<span>MA, Design Strategy and Innovation · 2010 to 2012</span></li>
+      <li>Massachusetts Institute of Technology<span>Entrepreneurship Bootcamp · 2011</span></li>
+      <li>Politècnica de Catalunya<span>Sustainability in Technological Innovation · 2009 to 2010</span></li>
+      <li>Marmara University<span>BA, Product Design · 2005 to 2009</span></li>
+    </ul><h2 class="h3" style="margin-top:40px">Teaching</h2><ul>
+      <li>NABA, Milan<span>Workshop: Design Research with AI · 2025</span></li>
+      <li>General Assembly<span>Mentor and reviewer · 2025</span></li>
+      <li>Istanbul Technical University<span>Guest lecturer, Interaction Design · 2018</span></li>
+    </ul></div>
+    <div class="c4"><h2 class="h3">Clients</h2><ul>
+      <li>Google · Unilever · Spotify · Facebook · IBM · Fidelity International · Mercedes-Benz</li>
+    </ul><h2 class="h3" style="margin-top:40px">Exhibitions</h2><ul>
+      <li>Bozar Ars Electronica, BE<span>Interactive display of Pulsations · 2020</span></li>
+      <li>The School of the Future, JP<span>Tokyo Midtown · 2020</span></li>
+      <li>Istanbul Design Biennale<span>2 to sit · 2018</span></li>
+    </ul><h2 class="h3" style="margin-top:40px">Awards</h2><ul>
+      <li>MIT Business Plan Competition<span>Runner-up with Tinkfabrik · 2011</span></li>
+      <li>Innovative Packaging Award<span>Kleenex compact tissue box</span></li>
+    </ul></div>
+  </section>
+  <div class="next"><a href="#" data-go="home">← Back to work</a></div>
+</main>
+
+<script>
+(function(){
+  document.documentElement.lang='en-GB';
+  // name scramble, carried over from ida.magnaven.com
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var chars='abcdefghijklmnopqrstuvwxyz#%&*';
+  var hues=['#1F5BFF','#FFC400','#FF2A1F'];
+  function esc(c){return c==='&'?'&amp;':c==='<'?'&lt;':c}
+  function scramble(el){
+    var t=el.dataset.t; if(!t)return; if(reduce){el.textContent=t;return}
+    if(el._run)return; el._run=true; var f=0;
+    el._i=setInterval(function(){
+      el.innerHTML=t.split('').map(function(c,i){
+        if(c===' '||i<f/2)return esc(c);
+        var col=hues[Math.random()*3|0];
+        if(Math.random()<.55)return '<i class="sh sh'+(Math.random()*3|0)+'" style="background:'+col+'"></i>';
+        return '<span style="color:'+col+'">'+esc(chars[Math.random()*chars.length|0])+'</span>';
+      }).join('');
+      if(++f>t.length*2){clearInterval(el._i);el.textContent=t;el._run=false}
+    },35);
+  }
+  document.querySelectorAll('header nav a, header button.copy, .meta h2, .next a').forEach(function(el){
+    if(!el.classList.contains('scr')){el.classList.add('scr');el.dataset.t=el.textContent.trim()}
+    if(!el.getAttribute('aria-label'))el.setAttribute('aria-label',el.dataset.t)
+  });
+  document.querySelectorAll('.scr').forEach(function(el){el.addEventListener('mouseenter',function(){scramble(el)})});
+  document.querySelectorAll('.row').forEach(function(r){var h=r.querySelector('.meta h2');r.addEventListener('mouseenter',function(){scramble(h)})});
+  var views=['home','connectd','oia','journey','agatha','bury','mum','magpie','letterbird','about'];
+  function show(){
+    var h=(location.hash||'').replace('#','');
+    if(views.indexOf(h)<0)h='home';
+    views.forEach(function(v){document.getElementById(v).classList.toggle('on',v===h)});
+    window.scrollTo(0,0);
+  }
+  window.addEventListener('hashchange',show);show();
+  document.querySelectorAll('[data-go="home"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();if(location.hash){location.hash='home';}else{show();}})});
+  var b=document.getElementById('copy-email');
+  b.addEventListener('click',function(){
+    var t='idatinker@gmail.com';
+    try{navigator.clipboard.writeText(t).then(function(){clearInterval(b._i);b._run=false;b.textContent='Copied';setTimeout(function(){b.textContent='Email'},1600)},function(){clearInterval(b._i);b._run=false;b.textContent=t})}catch(e){clearInterval(b._i);b._run=false;b.textContent=t}
+  });
+})();
+</script>
+</body>
+</html>
